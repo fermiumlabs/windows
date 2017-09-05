@@ -1,0 +1,101 @@
+VIRTUALBOX_S3_BUCKET = "s3://fermiumlabs-vagrant-boxes/virtualbox/"
+export VIRTUALBOX_S3_BUCKET
+VMWARE_S3_BUCKET = "s3://fermiumlabs-vagrant-boxes/vmware/"
+export VMWARE_S3_BUCKET
+PARALLELS_S3_BUCKET = "s3://fermiumlabs-vagrant-boxes/parallels/"
+export PARALLELS_S3_BUCKET
+
+export HEADLESS=true
+
+upload_virtualbox:
+  s3cmd sync box/virtualbox/  --progress --reduced-redundancy $(VIRTUALBOX_S3_BUCKET)
+upload_vmware:
+  s3cmd sync box/vmware/ --progress --reduced-redundancy $(VMWARE_S3_BUCKET)
+upload_parallels:
+  s3cmd sync box/parallels/ --progress --reduced-redundancy $(PARALLELS_S3_BUCKET)
+
+consumer_virtualbox: \
+  virtualbox/eval-win10x64-enterprise \
+  virtualbox/eval-win10x64-enterprise-cygwin \
+  virtualbox/eval-win10x64-enterprise-ssh \
+  virtualbox/eval-win10x86-enterprise \
+  virtualbox/eval-win10x86-enterprise-cygwin \
+  virtualbox/eval-win10x86-enterprise-ssh \
+  virtualbox/eval-win7x64-enterprise \
+  virtualbox/eval-win7x64-enterprise-cygwin \
+  virtualbox/eval-win7x64-enterprise-ssh \
+  virtualbox/eval-win7x86-enterprise \
+  virtualbox/eval-win7x86-enterprise-cygwin \
+  virtualbox/eval-win7x86-enterprise-ssh \
+  virtualbox/eval-win81x64-enterprise \
+  virtualbox/eval-win81x64-enterprise-cygwin \
+  virtualbox/eval-win81x64-enterprise-ssh \
+  virtualbox/eval-win81x86-enterprise \
+  virtualbox/eval-win81x86-enterprise-cygwin \
+  virtualbox/eval-win81x86-enterprise-ssh 
+
+server_virtualbox:  \
+  virtualbox/eval-win2016-standard \
+  virtualbox/eval-win2016-standard-cygwin \
+  virtualbox/eval-win2016-standard-ssh \
+  virtualbox/eval-win2012r2-standard \
+  virtualbox/eval-win2012r2-standard-cygwin \
+  virtualbox/eval-win2012r2-standard-ssh 
+  
+consumer_vmware: \
+  vmware/eval-win10x64-enterprise \
+  vmware/eval-win10x64-enterprise-cygwin \
+  vmware/eval-win10x64-enterprise-ssh \
+  vmware/eval-win10x86-enterprise \
+  vmware/eval-win10x86-enterprise-cygwin \
+  vmware/eval-win10x86-enterprise-ssh \
+  vmware/eval-win7x64-enterprise \
+  vmware/eval-win7x64-enterprise-cygwin \
+  vmware/eval-win7x64-enterprise-ssh \
+  vmware/eval-win7x86-enterprise \
+  vmware/eval-win7x86-enterprise-cygwin \
+  vmware/eval-win7x86-enterprise-ssh \
+  vmware/eval-win81x64-enterprise \
+  vmware/eval-win81x64-enterprise-cygwin \
+  vmware/eval-win81x64-enterprise-ssh \
+  vmware/eval-win81x86-enterprise \
+  vmware/eval-win81x86-enterprise-cygwin \
+  vmware/eval-win81x86-enterprise-ssh 
+
+server_vmware:  \
+  vmware/eval-win2016-standard \
+  vmware/eval-win2016-standard-cygwin \
+  vmware/eval-win2016-standard-ssh \
+  vmware/eval-win2012r2-standard \
+  vmware/eval-win2012r2-standard-cygwin \
+  vmware/eval-win2012r2-standard-ssh
+  
+consumer_parallels: \
+  parallels/eval-win10x64-enterprise \
+  parallels/eval-win10x64-enterprise-cygwin \
+  parallels/eval-win10x64-enterprise-ssh \
+  parallels/eval-win10x86-enterprise \
+  parallels/eval-win10x86-enterprise-cygwin \
+  parallels/eval-win10x86-enterprise-ssh \
+  parallels/eval-win7x64-enterprise \
+  parallels/eval-win7x64-enterprise-cygwin \
+  parallels/eval-win7x64-enterprise-ssh \
+  parallels/eval-win7x86-enterprise \
+  parallels/eval-win7x86-enterprise-cygwin \
+  parallels/eval-win7x86-enterprise-ssh \
+  parallels/eval-win81x64-enterprise \
+  parallels/eval-win81x64-enterprise-cygwin \
+  parallels/eval-win81x64-enterprise-ssh \
+  parallels/eval-win81x86-enterprise \
+  parallels/eval-win81x86-enterprise-cygwin \
+  parallels/eval-win81x86-enterprise-ssh 
+
+server_parallels:  \
+  parallels/eval-win2016-standard \
+  parallels/eval-win2016-standard-cygwin \
+  parallels/eval-win2016-standard-ssh \
+  parallels/eval-win2012r2-standard \
+  parallels/eval-win2012r2-standard-cygwin \
+  parallels/eval-win2012r2-standard-ssh 
+
+  
