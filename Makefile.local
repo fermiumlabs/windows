@@ -8,11 +8,11 @@ export PARALLELS_S3_BUCKET
 export HEADLESS=true
 
 upload_virtualbox:
-  s3cmd sync box/virtualbox/  --progress --reduced-redundancy $(VIRTUALBOX_S3_BUCKET)
+  aws s3 sync box/virtualbox/  $(VIRTUALBOX_S3_BUCKET) 
 upload_vmware:
-  s3cmd sync box/vmware/ --progress --reduced-redundancy $(VMWARE_S3_BUCKET)
+  aws s3 sync box/vmware/ $(VMWARE_S3_BUCKET) 
 upload_parallels:
-  s3cmd sync box/parallels/ --progress --reduced-redundancy $(PARALLELS_S3_BUCKET)
+  aws s3 sync box/parallels/  $(PARALLELS_S3_BUCKET) 
 
 consumer_virtualbox: \
   virtualbox/eval-win10x64-enterprise \
